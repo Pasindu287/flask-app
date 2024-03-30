@@ -1,0 +1,4 @@
+docs/
+tests/
+*.md
+*.pdf
