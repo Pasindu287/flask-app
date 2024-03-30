@@ -48,7 +48,7 @@ tensorboard==2.16.2
 tensorboard-data-server==0.7.2
 tensorflow==2.16.0
 tensorflow-intel==2.16.0
-termcolor==2.4.0
+termcolor==2.4.1
 tldextract==5.1.2
 typing_extensions==4.10.0
 urllib3==2.2.1
