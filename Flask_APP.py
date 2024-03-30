@@ -10,7 +10,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Load the pre-trained model
-model = tf.keras.models.load_model('/content/model.h5')
+model = tf.keras.models.load_model('model.h5')
 
 def preprocess_image(image):
     """
@@ -61,7 +61,6 @@ def home():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    app.logger.info("Predict route reached, method: %s", request.method)
     if 'file' not in request.files:
         return jsonify({'error': 'No file provided'}), 400
     file = request.files['file']
