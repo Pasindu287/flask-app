@@ -61,7 +61,6 @@ def home():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    app.logger.info("Predict route reached, method: %s", request.method)
     if 'file' not in request.files:
         return jsonify({'error': 'No file provided'}), 400
     file = request.files['file']
