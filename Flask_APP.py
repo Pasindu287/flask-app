@@ -40,10 +40,10 @@ def process_prediction(prediction):
     # Assuming the model outputs probabilities for each class
     predicted_class_index = np.argmax(prediction, axis=1)[0]
     confidence = np.max(prediction)
-    confidence_threshold = 0.9  # Confidence threshold to determine valid classification
+    confidence_threshold = 0.5  # Confidence threshold to determine valid classification
 
     # Mapping class indices to class names
-    class_map = {0: 'Spider Veins', 1: 'Varicose Veins', 2: 'Normal Legs'}
+    class_map = {0: 'Spider Veins', 1: 'Varicose Veins', 2: 'Normal Legs',3: 'Other'}
 
     if confidence >= confidence_threshold and predicted_class_index in class_map:
         predicted_class_name = class_map[predicted_class_index]
@@ -61,6 +61,7 @@ def home():
 
 @app.route('/predict', methods=['POST'])
 def predict():
+    app.logger.info("Predict route reached, method: %s", request.method)
     if 'file' not in request.files:
         return jsonify({'error': 'No file provided'}), 400
     file = request.files['file']
